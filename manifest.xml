@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:type="TaskPaneApp">
+
+    <Id>YOUR_ADDIN_ID</Id>
+    <Version>1.0.0.0</Version>
+    <ProviderName>Provider Name</ProviderName>
+    <DefaultLocale>en-US</DefaultLocale>
+    <DisplayName DefaultValue="Your Add-in Name" />
+    <Description DefaultValue="Description of your add-in." />
+
+    <!-- Define where your add-in will appear -->
+    <Hosts>
+        <Host xsi:type="Workbook">
+            <AllFormFactors>
+                <ExtensionPoint xsi:type="PrimaryCommandSurface">
+                    <!-- Specify your custom tab and group -->
+                    <CustomTab id="MyTab">
+                        <Group id="MyGroup">
+                            <Label resid="MyGroup.Label" />
+                            <!-- Define the button for your add-in -->
+                            <Control xsi:type="Button" id="PrintFirstPageButton">
+                                <Label resid="PrintFirstPageButton.Label" />
+                                <Supertip>
+                                    <Title resid="PrintFirstPageButton.Label" />
+                                    <Description resid="PrintFirstPageButton.Tooltip" />
+                                </Supertip>
+                                <Icon>
+                                    <bt:Image size="16" resid="Icon.16x16" />
+                                    <bt:Image size="32" resid="Icon.32x32" />
+                                    <bt:Image size="80" resid="Icon.80x80" />
+                                </Icon>
+                                <Action xsi:type="ExecuteFunction">
+                                    <FunctionName>printFirstPage</FunctionName>
+                                </Action>
+                            </Control>
+                        </Group>
+                    </CustomTab>
+                </ExtensionPoint>
+            </AllFormFactors>
+        </Host>
+    </Hosts>
+
+    <!-- Add other necessary sections for resources, permissions, etc. -->
+</OfficeApp>
